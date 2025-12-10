@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { getCartListApi, addToCartApi, removeCartItemApi, clearCartApi } from '@/api/index'
+import { getCartListApi, addToCartApi, removeCartItemApi, clearCartApi, updateCartItemApi } from '@/api/index'
 import { useUserStore } from './user'
 import { ElMessage } from 'element-plus'
 
@@ -77,8 +77,8 @@ export const useCartStore = defineStore('cart', () => {
     try {
       await updateCartItemApi({
         userId: userStore.userId,
-        skuId,
-        quantity
+        skuIdL skuId,
+        quantity: quantity
       })
     } catch (e) {
       ElMessage.error('Update Failed')
